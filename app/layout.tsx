@@ -6,8 +6,8 @@ import "./globals.css";
 import Header from "@/ui/layout/header";
 
 export const metadata: Metadata = {
-  title: "React challenge",
-  description: "React challenge",
+  title: "Cloud Music",
+  description: "Cloud Music is a music streaming service.",
 };
 
 export default function RootLayout({
