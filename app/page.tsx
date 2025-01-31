@@ -1,3 +1,3 @@
 export default function LandingPage() {
-  return <div>TABLE</div>;
+  return <div>Landing page</div>;
 }
