@@ -5,10 +5,9 @@
 const config = {
   trailingComma: "es5",
   semi: true,
-  singleQuote: true,
+  quoteProps: 'consistent',
   tailwindFunctions: ['clsx'],
   plugins: ['prettier-plugin-tailwindcss'],
-
 };
 
 export default config;
