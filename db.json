@@ -1,0 +1,306 @@
+{
+    "bands": [
+      {
+        "id": 1,
+        "name": "Led Zeppelin",
+        "genreCode": "hard-rock",
+        "year": 1968,
+        "country": "United Kingdom",
+        "members": [
+          { "name": "Robert Plant" },
+          { "name": "Jimmy Page" },
+          { "name": "John Paul Jones" }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "AC/DC",
+        "genreCode": "hard-rock",
+        "year": 1973,
+        "country": "Australia",
+        "members": [{ "name": "Brian Johnson" }, { "name": "Angus Young" }]
+      },
+      {
+        "id": 3,
+        "name": "Queens of the Stone Age",
+        "genreCode": "hard-rock",
+        "year": 1996,
+        "country": "United States",
+        "members": [{ "name": "Josh Homme" }]
+      },
+      {
+        "id": 4,
+        "name": "Alter Bridge",
+        "genreCode": "hard-rock",
+        "year": 2004,
+        "country": "United States",
+        "members": [{ "name": "Myles Kennedy" }]
+      },
+      {
+        "id": 5,
+        "name": "Wolfmother",
+        "genreCode": "hard-rock",
+        "year": 2004,
+        "country": "Australia",
+        "members": [{ "name": "Andrew Stockdale" }]
+      },
+  
+      {
+        "id": 6,
+        "name": "Nirvana",
+        "genreCode": "grunge",
+        "year": 1987,
+        "country": "United States",
+        "members": [{ "name": "Kurt Cobain" }, { "name": "Krist Novoselic" }]
+      },
+      {
+        "id": 7,
+        "name": "Pearl Jam",
+        "genreCode": "grunge",
+        "year": 1990,
+        "country": "United States",
+        "members": [{ "name": "Eddie Vedder" }, { "name": "Stone Gossard" }]
+      },
+      {
+        "id": 8,
+        "name": "Soundgarden",
+        "genreCode": "grunge",
+        "year": 1984,
+        "country": "United States",
+        "members": [{ "name": "Chris Cornell" }, { "name": "Kim Thayil" }]
+      },
+      {
+        "id": 9,
+        "name": "Stone Temple Pilots",
+        "genreCode": "grunge",
+        "year": 1989,
+        "country": "United States",
+        "members": [{ "name": "Scott Weiland" }]
+      },
+      {
+        "id": 10,
+        "name": "Alice in Chains",
+        "genreCode": "grunge",
+        "year": 1987,
+        "country": "United States",
+        "members": [{ "name": "Layne Staley" }]
+      },
+  
+      {
+        "id": 11,
+        "name": "Metallica",
+        "genreCode": "heavy-metal",
+        "year": 1981,
+        "country": "United States",
+        "members": [{ "name": "James Hetfield" }, { "name": "Lars Ulrich" }]
+      },
+      {
+        "id": 12,
+        "name": "Iron Maiden",
+        "genreCode": "heavy-metal",
+        "year": 1975,
+        "country": "United Kingdom",
+        "members": [{ "name": "Bruce Dickinson" }, { "name": "Steve Harris" }]
+      },
+      {
+        "id": 13,
+        "name": "Black Sabbath",
+        "genreCode": "heavy-metal",
+        "year": 1968,
+        "country": "United Kingdom",
+        "members": [{ "name": "Ozzy Osbourne" }]
+      },
+      {
+        "id": 14,
+        "name": "Anthrax",
+        "genreCode": "heavy-metal",
+        "year": 1981,
+        "country": "United States",
+        "members": [{ "name": "Scott Ian" }, { "name": "Charlie Benante" }]
+      },
+      {
+        "id": 15,
+        "name": "Avenged Sevenfold",
+        "genreCode": "heavy-metal",
+        "year": 1999,
+        "country": "United States",
+        "members": [{ "name": "M. Shadows" }, { "name": "Synyster Gates" }]
+      },
+  
+      {
+        "id": 16,
+        "name": "Dream Theater",
+        "genreCode": "power-metal",
+        "year": 1985,
+        "country": "United States",
+        "members": [{ "name": "John Petrucci" }, { "name": "James LaBrie" }]
+      },
+      {
+        "id": 17,
+        "name": "Sabaton",
+        "genreCode": "power-metal",
+        "year": 1999,
+        "country": "Sweden",
+        "members": [{ "name": "Joakim Brodén" }, { "name": "Pär Sundström" }]
+      },
+      {
+        "id": 18,
+        "name": "Epica",
+        "genreCode": "power-metal",
+        "year": 2002,
+        "country": "Netherlands",
+        "members": [{ "name": "Simone Simons" }]
+      },
+      {
+        "id": 19,
+        "name": "Helloween",
+        "genreCode": "power-metal",
+        "year": 1984,
+        "country": "Germany",
+        "members": [{ "name": "Michael Kiske" }]
+      },
+      {
+        "id": 20,
+        "name": "Iced Earth",
+        "genreCode": "power-metal",
+        "year": 1985,
+        "country": "United States",
+        "members": [{ "name": "Jon Schaffer" }]
+      },
+  
+      {
+        "id": 21,
+        "name": "Foo Fighters",
+        "genreCode": "rock",
+        "year": 1994,
+        "country": "United States",
+        "members": [{ "name": "Dave Grohl" }, { "name": "Nate Mendel" }]
+      },
+      {
+        "id": 22,
+        "name": "The Strokes",
+        "genreCode": "rock",
+        "year": 1998,
+        "country": "United States",
+        "members": [{ "name": "Julian Casablancas" }, { "name": "Nick Valensi" }]
+      },
+      {
+        "id": 23,
+        "name": "The Killers",
+        "genreCode": "rock",
+        "year": 2001,
+        "country": "United States",
+        "members": [{ "name": "Brandon Flowers" }]
+      },
+      {
+        "id": 24,
+        "name": "Blur",
+        "genreCode": "rock",
+        "year": 1988,
+        "country": "United Kingdom",
+        "members": [{ "name": "Damon Albarn" }, { "name": "Graham Coxon" }]
+      },
+      {
+        "id": 25,
+        "name": "The Smashing Pumpkins",
+        "genreCode": "rock",
+        "year": 1988,
+        "country": "United States",
+        "members": [{ "name": "Billy Corgan" }]
+      },
+  
+      {
+        "id": 26,
+        "name": "Rage Against the Machine",
+        "genreCode": "hard-rock",
+        "year": 1991,
+        "country": "United States",
+        "members": [{ "name": "Zack de la Rocha" }]
+      },
+      {
+        "id": 27,
+        "name": "Machine Head",
+        "genreCode": "heavy-metal",
+        "year": 1991,
+        "country": "United States",
+        "members": [{ "name": "Robb Flynn" }]
+      },
+      {
+        "id": 28,
+        "name": "Mastodon",
+        "genreCode": "heavy-metal",
+        "year": 2000,
+        "country": "United States",
+        "members": [{ "name": "Brent Hinds" }]
+      },
+      {
+        "id": 29,
+        "name": "Korn",
+        "genreCode": "grunge",
+        "year": 1993,
+        "country": "United States",
+        "members": [{ "name": "Jonathan Davis" }]
+      },
+      {
+        "id": 30,
+        "name": "Deftones",
+        "genreCode": "grunge",
+        "year": 1988,
+        "country": "United States",
+        "members": [{ "name": "Chino Moreno" }]
+      }
+    ],
+    "genres": [
+      { "code": "hard-rock", "name": "Hard Rock" },
+      { "code": "grunge", "name": "Grunge" },
+      { "code": "heavy-metal", "name": "Heavy Metal" },
+      { "code": "power-metal", "name": "Power Metal" },
+      { "code": "rock", "name": "Rock" }
+    ],
+    "albums": [
+      { "id": 1, "bandId": 1, "name": "Led Zeppelin IV", "year": 1971 },
+      { "id": 2, "bandId": 1, "name": "Physical Graffiti", "year": 1975 },
+      { "id": 3, "bandId": 2, "name": "Back in Black", "year": 1980 },
+      { "id": 4, "bandId": 2, "name": "Highway to Hell", "year": 1979 },
+      { "id": 5, "bandId": 3, "name": "Songs for the Deaf", "year": 2002 },
+      { "id": 6, "bandId": 4, "name": "Blackbird", "year": 2007 },
+      { "id": 7, "bandId": 5, "name": "Wolfmother", "year": 2005 },
+      { "id": 8, "bandId": 6, "name": "Nevermind", "year": 1991 },
+      { "id": 9, "bandId": 6, "name": "In Utero", "year": 1993 },
+      { "id": 10, "bandId": 7, "name": "Ten", "year": 1991 },
+      { "id": 11, "bandId": 8, "name": "Badmotorfinger", "year": 1991 },
+      { "id": 12, "bandId": 9, "name": "Core", "year": 1992 },
+      { "id": 13, "bandId": 10, "name": "Dirt", "year": 1992 },
+      { "id": 14, "bandId": 11, "name": "Master of Puppets", "year": 1986 },
+      { "id": 15, "bandId": 11, "name": "Ride the Lightning", "year": 1984 },
+      { "id": 16, "bandId": 12, "name": "The Number of the Beast", "year": 1982 },
+      { "id": 17, "bandId": 13, "name": "Paranoid", "year": 1970 },
+      { "id": 18, "bandId": 14, "name": "Among the Living", "year": 1987 },
+      { "id": 19, "bandId": 15, "name": "City of Evil", "year": 2005 },
+      { "id": 20, "bandId": 16, "name": "Images and Words", "year": 1992 },
+      { "id": 21, "bandId": 17, "name": "The Art of War", "year": 2008 },
+      { "id": 22, "bandId": 18, "name": "Design Your Universe", "year": 2009 },
+      {
+        "id": 23,
+        "bandId": 19,
+        "name": "Keeper of the Seven Keys",
+        "year": 1987
+      },
+      { "id": 24, "bandId": 20, "name": "Horror Show", "year": 2001 },
+      {
+        "id": 25,
+        "bandId": 21,
+        "name": "The Colour and the Shape",
+        "year": 1997
+      },
+      { "id": 26, "bandId": 22, "name": "Is This It", "year": 2001 },
+      { "id": 27, "bandId": 23, "name": "Hot Fuss", "year": 2004 },
+      { "id": 28, "bandId": 24, "name": "Parklife", "year": 1994 },
+      {
+        "id": 29,
+        "bandId": 25,
+        "name": "Mellon Collie and the Infinite Sadness",
+        "year": 1995
+      }
+    ]
+  }
