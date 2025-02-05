@@ -1,6 +1,11 @@
 import { Button } from "@/shadcn/button";
 import { MdHome } from "react-icons/md";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+};
 
 export default function NotFound() {
   return (
