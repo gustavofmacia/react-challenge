@@ -2,8 +2,6 @@
 
 This project is a data query website for music bands developed as part of a React development challenge. It demonstrates fundamental React skills by implementing a simple yet functional application with authentication, data filtering, sorting, and detailed views.
 
----
-
 ## Project Overview
 
 The website includes the following features:
@@ -18,8 +16,6 @@ The website includes the following features:
   View details for a specific band, including albums and members.
 - **Logout Functionality:**  
   Allows the user to securely log out.
-
----
 
 ## API and Data Models
 
@@ -37,8 +33,6 @@ For more details on interacting with the API (filters, pagination, etc.), please
 - **Album:**  
   Represents an album that belongs to a band.
 
----
-
 ## Technical Requirements
 
 - **React Version:**  
@@ -52,8 +46,6 @@ For more details on interacting with the API (filters, pagination, etc.), please
 - **Optional:**
   - Using ESLint (or another linter) is optional but recommended.
   - State management libraries (such as Redux or Flux) are optional.
-
----
 
 ## Key Technologies Used
 
@@ -74,8 +66,6 @@ For more details on interacting with the API (filters, pagination, etc.), please
 - **Prettier:**  
   An opinionated code formatter that automatically formats code according to a consistent style, ensuring readability and reducing debates on code style during collaboration.
 
----
-
 ## UI Design
 
 The user interface of this project is designed with responsiveness in mind, ensuring a seamless experience across different screen sizes and devices. Tailwind CSS was used to implement a mobile-first, responsive layout.
@@ -87,8 +77,6 @@ For displaying the list of bands, a **table** was chosen to provide a clear and 
 However, an alternative approach could have been to use **cards** instead of a table. With this design, each band could be displayed in its own card, providing a more visual and compact representation. In such a case, the sorting and filtering controls could have been placed outside the table (or card view) as separate components, allowing users to first select their desired filter or sort options before the results are displayed in the cards.
 
 Both designs are valid choices, and while the table offers a more traditional, grid-like view of the data, using cards could provide a more flexible, modern design depending on the context and user preferences.
-
----
 
 ## Project Structure
 
@@ -119,8 +107,6 @@ The project follows a well-organized folder hierarchy to promote clarity and mai
 - **server-actions**: This folder contains functions for fetching data that are always executed on the server side.
 - **/public:** Contains static assets like images and icons.
 - **/utils:** Contains utility functions and helper modules.
-
----
 
 ## Getting Started
 
@@ -175,8 +161,6 @@ After the build process is complete, start the project with:
 npm run start
 ```
 
----
-
 ## Additional Information
 
 ### Authentication
@@ -191,15 +175,11 @@ The project uses Next.js routing conventions. The folder structure is designed t
 
 The project interacts with a JSON Server API that supports filtering, pagination, and other query operations. Refer to the [JSON Server Documentation](https://github.com/typicode/json-server/tree/v0) for details on how to work with the API.
 
----
-
 ## Deployment
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
----
 
 ## Conclusion
 
