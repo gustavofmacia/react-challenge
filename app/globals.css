@@ -71,3 +71,31 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .container-main {
+    @apply mx-auto px-4 sm:px-20 lg:px-28 2xl:px-60;
+  }
+
+  .container-reduce {
+    @apply lg:w-4/5;
+  }
+}
+
+/* RADIX VARIABLES */
+@layer utilities {
+  .PopoverContent {
+    width: var(--radix-popover-trigger-width);
+    max-height: var(--radix-popover-content-available-height);
+  }
+
+  .MinWidthPopoverContent {
+    min-width: var(--radix-popover-trigger-width);
+    max-height: var(--radix-popover-content-available-height);
+  }
+
+  .DropdownMenuContent {
+    width: var(--radix-dropdown-menu-trigger-width);
+    max-height: var(--radix-dropdown-menu-content-available-height);
+  }
+}
