@@ -44,7 +44,6 @@ export default function LoginForm({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormState((prev) => ({ ...prev, [id]: value }));
-    console.log(formState);
     if (loginError) setLoginError("");
   };
 
