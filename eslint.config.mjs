@@ -5,6 +5,14 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.config({
     extends: ['next', 'prettier', 'next/core-web-vitals', 'next/typescript'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
   }),
 ]
 export default eslintConfig
