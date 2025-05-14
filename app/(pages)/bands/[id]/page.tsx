@@ -28,8 +28,6 @@ export default async function BandPage({
 
   const band: Band | null = await fetchBand(bandId);
 
-  console.log(band);
-
   if (!band) {
     return <p>Band not found</p>;
   }
