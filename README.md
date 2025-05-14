@@ -128,9 +128,20 @@ npm install
 
 Before running the project, make sure to create a `.env.local` file at the root of the project with the following environment variable:
 
-NEXTAUTH_SECRET=VIVQ3r92yxtSCXPNxkka2Xf8MzIlmBsZy/ifCmMhT/k=
+```shell
+NEXTAUTH_SECRET=
+```
+
+The environment variable need a random string that used to hash tokens, sign/encrypt cookies and generate cryptographic keys.
+You can quickly create a good value on the command line via this openssl command:
+
+```bash
+openssl rand -base64 32
+```
 
 [More information](https://next-auth.js.org/errors#no_secret)
+[More information](https://next-auth.js.org/configuration/options#secret)
+
 
 ### Running the Development Server
 
