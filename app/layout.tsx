@@ -4,6 +4,7 @@ import { roboto } from "./fonts";
 import "./globals.css";
 // Components
 import Header from "@/ui/layout/header";
+import Footer from "@/ui/layout/footer";
 // React
 import { Suspense } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
@@ -40,6 +41,7 @@ export default function RootLayout({
             {children}
           </main>
         </Suspense>
+        <Footer />
       </body>
     </html>
   );

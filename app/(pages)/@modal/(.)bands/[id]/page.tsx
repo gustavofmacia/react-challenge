@@ -28,8 +28,6 @@ export default async function BandModal({
 
   const band: Band | null = await fetchBand(bandId);
 
-  console.log(band);
-
   if (!band) {
     return <Modal title="band">Band not found.</Modal>;
   }
