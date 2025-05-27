@@ -113,7 +113,7 @@ The project follows a well-organized folder hierarchy to promote clarity and mai
 ### Prerequisites
 
 - Node.js (version 14 or later)
-- npm or yarn
+- pnpm
 
 ### Installation
 
@@ -121,7 +121,7 @@ The project follows a well-organized folder hierarchy to promote clarity and mai
 2. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Configuration
@@ -148,7 +148,7 @@ openssl rand -base64 32
 Start the development server with:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -163,13 +163,13 @@ The home route (/) is configured to redirect to /bands, which is currently the o
 To build the project, run:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 After the build process is complete, start the project with:
 
 ```bash
-npm run start
+pnpm run start
 ```
 
 ## Additional Information
