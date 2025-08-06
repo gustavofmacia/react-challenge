@@ -1,9 +1,7 @@
 import type { Config } from "tailwindcss";
-import tailwindCustomConfig from "./tailwind-custom.config";
 import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
-  presets: [tailwindCustomConfig],
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
