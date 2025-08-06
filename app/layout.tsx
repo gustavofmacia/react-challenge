@@ -26,16 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} antialiased`}>
         <Header />
-        <Suspense
-          fallback={
-            <>
-              <div className="flex h-dvh w-full items-center justify-center pb-72">
-                <AiOutlineLoading3Quarters className="size-28 animate-spin text-primary" />
-              </div>
-              <span className="sr-only">Loading web site</span>
-            </>
-          }
-        >
+        <Suspense fallback={<Loading />}>
           <main>
             {modal}
             {children}
@@ -44,5 +35,16 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
+  );
+}
+
+function Loading() {
+  return (
+    <>
+      <div className="flex h-dvh w-full items-center justify-center pb-72">
+        <AiOutlineLoading3Quarters className="size-28 animate-spin text-primary" />
+      </div>
+      <span className="sr-only">Loading web site</span>
+    </>
   );
 }

@@ -74,7 +74,7 @@ export default function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
+      <Card className="border-none shadow-none sm:border-solid">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
@@ -112,6 +112,7 @@ export default function LoginForm({
                   disabled={isLoading}
                   id="password"
                   onChange={handleInputChange}
+                  placeholder="admin"
                   required
                   type="password"
                   value={formState.password}
