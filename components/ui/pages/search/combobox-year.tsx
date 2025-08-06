@@ -111,7 +111,7 @@ export default function ComboboxYear({
                 {selectedYear && (
                   <>
                     <X
-                      className="!pointer-events-auto mx-2 !size-4 cursor-pointer text-muted-foreground hover:text-accent-foreground"
+                      className="text-muted-foreground hover:text-accent-foreground !pointer-events-auto mx-2 !size-4 cursor-pointer"
                       onClick={handleClearSelection}
                     />
 
@@ -127,10 +127,7 @@ export default function ComboboxYear({
             </Button>
           </PopoverTrigger>
         </TooltipCustom>
-        <PopoverContent
-          className="MinWidthPopoverContent w-auto p-0"
-          align="start"
-        >
+        <PopoverContent className="popover-content w-auto p-0" align="start">
           <Command>
             {commandInput && (
               <div className="hidden sm:block [&_svg]:size-3.5">

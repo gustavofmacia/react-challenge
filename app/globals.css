@@ -84,18 +84,8 @@ body {
 
 /* RADIX VARIABLES */
 @layer utilities {
-  .PopoverContent {
-    width: var(--radix-popover-trigger-width);
-    max-height: var(--radix-popover-content-available-height);
-  }
-
-  .MinWidthPopoverContent {
+  .popover-content {
     min-width: var(--radix-popover-trigger-width);
     max-height: var(--radix-popover-content-available-height);
-  }
-
-  .DropdownMenuContent {
-    width: var(--radix-dropdown-menu-trigger-width);
-    max-height: var(--radix-dropdown-menu-content-available-height);
   }
 }
