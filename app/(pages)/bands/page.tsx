@@ -7,7 +7,6 @@ import BandsTable from "@/ui/pages/bands/bands-table";
 import BandsFilterMenu from "@/components/ui/pages/bands/bands-filter-menu";
 // Shadcn
 import { Skeleton } from "@/shadcn/skeleton";
-import SortTableHead from "@/components/ui/table/sort-table-head";
 import {
   Table,
   TableBody,
@@ -48,10 +47,10 @@ function BandsTableSkeleton({ limit = 5 }: { limit?: number }) {
         <Table className="w-full table-fixed animate-pulse">
           <TableHeader>
             <TableRow className="*:pointer-events-none">
-              <SortTableHead searchParamKey="name"> Name</SortTableHead>
-              <SortTableHead searchParamKey="genreCode">Genre</SortTableHead>
-              <SortTableHead searchParamKey="country">Country</SortTableHead>
-              <SortTableHead searchParamKey="year">Year</SortTableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Genre</TableHead>
+              <TableHead>Country</TableHead>
+              <TableHead>Year</TableHead>
               <TableHead className="w-12 sm:w-20"></TableHead>
             </TableRow>
           </TableHeader>
