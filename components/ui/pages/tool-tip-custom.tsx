@@ -1,9 +1,4 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/shadcn/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/shadcn/tooltip";
 
 type Props = {
   children: React.ReactNode;
@@ -19,15 +14,13 @@ export default function TooltipCustom({
   className = "",
 }: Props) {
   return (
-    <TooltipProvider delayDuration={delay} skipDelayDuration={0}>
-      <Tooltip>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
-        {message && (
-          <TooltipContent sideOffset={5}>
-            <div className={className}>{message}</div>
-          </TooltipContent>
-        )}
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip delayDuration={delay}>
+      <TooltipTrigger asChild>{children}</TooltipTrigger>
+      {message && (
+        <TooltipContent sideOffset={5} className="pointer-events-none">
+          <div className={className}>{message}</div>
+        </TooltipContent>
+      )}
+    </Tooltip>
   );
 }

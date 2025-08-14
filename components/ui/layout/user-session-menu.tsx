@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 // NextAuth
-import { useSession, signOut } from 'next-auth/react';
-import { SessionProvider } from 'next-auth/react';
+import { useSession, signOut } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 // Shadcn
 import {
   DropdownMenu,
@@ -11,9 +11,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/shadcn/dropdown-menu';
+} from "@/shadcn/dropdown-menu";
 // Icons
-import { MdAccountCircle } from 'react-icons/md';
+import { MdAccountCircle } from "react-icons/md";
 
 export default function UserSessionMenu() {
   return (
@@ -27,9 +27,9 @@ function UserMenu() {
   const { status } = useSession();
 
   return (
-    status === 'authenticated' && (
+    status === "authenticated" && (
       <DropdownMenu>
-        <DropdownMenuTrigger>
+        <DropdownMenuTrigger className="cursor-pointer">
           <MdAccountCircle className="size-10 text-white" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>

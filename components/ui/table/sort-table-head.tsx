@@ -54,7 +54,11 @@ export default function SortTableHead({
 
   return (
     <TableHead className={cn(className, "")}>
-      <Button className="-ml-3 px-3" variant="ghost" onClick={handleSort}>
+      <Button
+        className="-ml-3 cursor-pointer px-3"
+        variant="ghost"
+        onClick={handleSort}
+      >
         {children}
         {sortOrder === "asc" ? (
           <ArrowUp />

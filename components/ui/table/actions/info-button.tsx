@@ -14,7 +14,7 @@ export function InfoButton({ href }: Props) {
         asChild
         variant="ghost"
         size="icon"
-        className="cursor-pointer"
+        className="size-7"
       >
         <Link href={href}>
           <Info />

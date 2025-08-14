@@ -20,9 +20,9 @@ export default function Modal({ children, title }: Props) {
 
   return (
     <Dialog defaultOpen={true} open={true} onOpenChange={handleOpenChange}>
-      <DialogContent className="!w-[30rem] !max-w-[92%] rounded-lg p-10 [&_svg]:size-5">
+      <DialogContent className="w-120! max-w-[92%]! rounded-lg p-10 [&_button]:cursor-pointer [&_svg]:size-5">
         <DialogHeader>
-          <DialogTitle className="z-0 text-left text-1.2xl font-bold text-primary md:text-2xl 2xl:text-2.6xl">
+          <DialogTitle className="text-1.2xl text-primary 2xl:text-2.6xl z-0 text-left font-bold md:text-2xl">
             {title}
           </DialogTitle>
           <DialogDescription className="sr-only">

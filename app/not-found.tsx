@@ -19,7 +19,7 @@ export default function NotFound() {
         asChild
       >
         <Link href="/" prefetch={false}>
-          <MdHome className="!size-5 sm:!size-6" />
+          <MdHome className="size-5! sm:size-6!" />
           Go to home page
         </Link>
       </Button>

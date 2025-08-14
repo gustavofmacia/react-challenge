@@ -24,14 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} antialiased`}>
+      <body className={`${roboto.className} min-h-dvh antialiased`}>
         <Header />
-        <Suspense fallback={<Loading />}>
-          <main>
+        <main>
+          <Suspense fallback={<Loading />}>
             {modal}
             {children}
-          </main>
-        </Suspense>
+          </Suspense>
+        </main>
         <Footer />
       </body>
     </html>
@@ -41,8 +41,8 @@ export default function RootLayout({
 function Loading() {
   return (
     <>
-      <div className="flex h-dvh w-full items-center justify-center pb-72">
-        <AiOutlineLoading3Quarters className="size-28 animate-spin text-primary" />
+      <div className="container-main mt-44 flex justify-center">
+        <AiOutlineLoading3Quarters className="text-primary size-28 animate-spin" />
       </div>
       <span className="sr-only">Loading web site</span>
     </>

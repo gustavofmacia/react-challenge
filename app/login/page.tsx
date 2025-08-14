@@ -15,7 +15,7 @@ export default async function LoginPage() {
 
   return (
     <>
-      <div className="mt-14 flex flex-col items-center justify-center md:mt-24">
+      <div className="mt-10 flex flex-col items-center justify-center md:mt-24">
         <LoginForm />
       </div>
     </>
