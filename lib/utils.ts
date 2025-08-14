@@ -15,7 +15,7 @@ export function extractPages(linkHeader: string | null): Pagination {
       .split(", ")
       .map((link) => link.match(/_page=(\d+)[^>]*>\s*;\s*rel="(\w+)"/))
       .filter((match): match is RegExpMatchArray => match !== null)
-      .map(([_, page, rel]) => [rel, parseInt(page, 10)])
+      .map(([, page, rel]) => [rel, parseInt(page, 10)])
   );
 
   return Object.keys(pages).length > 0 ? pages : defaultPages;
