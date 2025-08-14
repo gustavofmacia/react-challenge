@@ -2,6 +2,9 @@ import SortTableHead from "@/components/ui/table/sort-table-head";
 import { InfoButton } from "@/ui/table/actions/info-button";
 import { fetchBands } from "@/server-actions/bands-server-actions";
 import { PaginationList } from "../pagination-list";
+import { Button } from "@/shadcn/button";
+import Link from "next/link";
+import { MdRestartAlt } from "react-icons/md";
 // Shadcn
 import {
   Table,
@@ -26,7 +29,7 @@ export default async function BandsTable({ searchParams }: Props) {
   const bands = response?.data;
 
   if (!bands?.length) {
-    return <div className="mt-10 text-lg">No bands found.</div>;
+    return <NoBandsFound />;
   }
 
   return (
@@ -64,6 +67,26 @@ export default async function BandsTable({ searchParams }: Props) {
           searchParams={searchParams}
         />
       )}
+    </>
+  );
+}
+
+function NoBandsFound() {
+  return (
+    <>
+      <div className="mt-10 mb-14 text-lg">No bands found.</div>
+      <div>
+        <Button
+          variant="link"
+          className="flex h-auto p-0 text-lg sm:text-xl"
+          asChild
+        >
+          <Link href="/bands" prefetch={false}>
+            <MdRestartAlt className="size-6!" />
+            Reset filters
+          </Link>
+        </Button>
+      </div>
     </>
   );
 }
