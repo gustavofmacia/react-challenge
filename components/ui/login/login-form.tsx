@@ -73,19 +73,25 @@ export default function LoginForm({
   };
 
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="border-none shadow-none sm:border-solid">
+    <div
+      className={cn("flex w-full max-w-[470px] flex-col gap-6", className)}
+      {...props}
+    >
+      <Card className="gap-4 border-none shadow-none sm:border-solid">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardTitle className="mb-2 text-2xl">Login</CardTitle>
           <CardDescription>
-            Enter your username below to login to your account
+            <p className="text-gray-600">
+              For this demo, use <strong>{`"admin"`}</strong> as both the
+              username and password.
+            </p>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={onSubmit}>
             <div className="space-y-6">
               {loginError && (
-                <div className="rounded-md bg-destructive/10 p-3 text-sm font-medium text-destructive">
+                <div className="bg-destructive/10 text-destructive rounded-md p-3 text-sm font-medium">
                   {loginError}
                 </div>
               )}
