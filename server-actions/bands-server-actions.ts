@@ -1,14 +1,15 @@
 "use server";
 
 import { extractPages } from "@/lib/utils";
+import { ALLOWED_LIMITS, DEFAULT_LIMIT } from "@/config/constants";
 
 const pageUrl =
-  "https://my-json-server.typicode.com/gustavofmacia/react-challenge/bands/";  
+  "https://my-json-server.typicode.com/gustavofmacia/react-challenge/bands/";
 
 export async function fetchBands(
   country: string = "",
   genre: string = "",
-  limit: string = "5",
+  limit: string = DEFAULT_LIMIT,
   order: string = "",
   page: string = "1",
   query: string = "",
@@ -16,16 +17,16 @@ export async function fetchBands(
   year: string = ""
 ) {
   try {
-    const pageNumber = parseInt(page);
+    const pageNumber = parseInt(page, 10);
+    if (isNaN(pageNumber) || pageNumber <= 0) return null;
 
-    if (isNaN(pageNumber) || pageNumber <= 0) {
-      return null;
-    }
+    const limitChecked = ALLOWED_LIMITS.includes(Number(limit))
+      ? limit
+      : DEFAULT_LIMIT;
 
     const url = new URL(pageUrl);
-
     const params = new URLSearchParams({
-      _limit: limit,
+      _limit: limitChecked,
       _order: order,
       _page: page,
       _sort: sort,
@@ -33,9 +34,7 @@ export async function fetchBands(
     });
 
     if (country) params.append("country", country);
-
     if (genre) params.append("genreCode", genre);
-
     if (year) params.append("year", year);
 
     url.search = params.toString();
@@ -51,16 +50,14 @@ export async function fetchBands(
     }
 
     const linkHeaders = response.headers.get("Link");
-
     const paginationLinks: Pagination = extractPages(linkHeaders);
-
     const data: Band[] = await response.json();
 
     const bands = {
-      data: data,
+      data,
       pagination: {
         ...paginationLinks,
-        rowsPerPage: limit,
+        rowsPerPage: limitChecked,
         currentPage: pageNumber,
       },
     };
