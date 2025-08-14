@@ -4,11 +4,11 @@ import Combobox from "@/components/ui/pages/search/combobox";
 
 export default function BandsFilterMenu() {
   return (
-    <div className="mb-6 grid grid-cols-2 gap-3 md:flex">
+    <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-[repeat(auto-fit,minmax(140px,1fr))]">
       <SearchInput
         placeholder="Key words"
         searchParamKey="query"
-        className="md:w-full md:min-w-32"
+        className="md:w-full"
       />
 
       <Combobox

@@ -13,6 +13,8 @@ import { useEffect, useRef, useState } from "react";
 // Icons
 import { MdSearch } from "react-icons/md";
 import { X } from "lucide-react";
+// Hooks
+import { useHydrated } from "@/hooks/useHydrated";
 
 type Props = {
   className?: string;
@@ -32,36 +34,31 @@ export default function SearchInput({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [value, setValue] = useState<string | null>(
-    searchParams.get(searchParamKey)
+  const [value, setValue] = useState<string>(
+    searchParams.get(searchParamKey) ?? ""
   );
-
-  const timeOut = useRef<NodeJS.Timeout | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
+  const isHydrated = useHydrated();
+
   const params = new URLSearchParams(searchParams);
 
-  // const isHydrated = useHydration();
-
   useEffect(() => {
-    const paramValue = searchParams.get(searchParamKey);
-    setValue(paramValue ? paramValue : "");
+    const paramValue = searchParams.get(searchParamKey) ?? "";
+    setValue(paramValue);
 
     return () => {
-      if (timeOut.current) {
-        clearTimeout(timeOut.current);
-      }
+      if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
     };
-  }, [searchParams, searchParamKey]);
+  }, [searchParamKey, searchParams]);
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const currentValue = e.target.value;
     setValue(currentValue);
 
-    if (timeOut.current) {
-      clearTimeout(timeOut.current);
-    }
+    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
 
-    timeOut.current = setTimeout(() => {
+    debounceTimeout.current = setTimeout(() => {
       if (currentValue) {
         params.set(searchParamKey, currentValue);
         params.set("page", "1");
@@ -83,9 +80,7 @@ export default function SearchInput({
 
     setValue("");
 
-    if (timeOut.current) {
-      clearTimeout(timeOut.current);
-    }
+    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
 
     inputRef.current?.focus();
   }
@@ -98,19 +93,23 @@ export default function SearchInput({
             ref={inputRef}
             value={value ?? ""}
             onChange={handleOnChange}
-            className={cn("truncate pr-9 text-sm font-medium")}
+            className={cn(
+              "truncate pr-9 text-sm font-medium",
+              !isHydrated &&
+                "pointer-events-none animate-pulse *:pointer-events-none hover:bg-white"
+            )}
             placeholder={placeholder}
           />
 
           {value ? (
             <X
               onClick={handleClear}
-              className="absolute right-3 top-2.5 size-4 cursor-pointer text-muted-foreground hover:text-accent-foreground"
+              className="text-muted-foreground hover:text-accent-foreground absolute top-2.5 right-3 size-4 cursor-pointer"
             />
           ) : (
             <MdSearch
               onClick={() => inputRef.current?.focus()}
-              className="absolute right-3 top-2.5 size-4 cursor-text text-muted-foreground"
+              className="text-muted-foreground absolute top-2.5 right-3 size-4 cursor-text"
             />
           )}
         </div>

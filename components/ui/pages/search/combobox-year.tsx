@@ -18,6 +18,8 @@ import { Separator } from "@/shadcn/separator";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/shadcn/scroll-area";
 import NumberHelper from "@/lib/number-helper";
+// Hooks
+import { useHydrated } from "@/hooks/useHydrated";
 // Next
 import { useRouter, useSearchParams } from "next/navigation";
 // React
@@ -39,6 +41,7 @@ export default function ComboboxYear({
   startYear = 1900,
 }: Props) {
   const [open, setOpen] = useState(false);
+  const isHydrated = useHydrated();
   const router = useRouter();
   const searchParams = useSearchParams();
   const searchParamKey = "year";
@@ -53,8 +56,6 @@ export default function ComboboxYear({
     startYear,
     endYear
   ).map((year) => year.toString());
-
-  // const isHydrated = useHydration();
 
   useEffect(() => {
     const paramValue = searchParams.get(searchParamKey);
@@ -96,10 +97,9 @@ export default function ComboboxYear({
               role="combobox"
               aria-expanded={open}
               className={cn(
-                // "hidden justify-between px-3 font-normal [&[data-state=open]>svg]:rotate-180",
-                "inline-flex justify-between px-3 font-normal [&[data-state=open]_svg]:rotate-180",
+                "inline-flex cursor-pointer justify-between px-3 font-normal [&[data-state=open]_svg]:rotate-180",
                 className,
-                // isHydrated && "inline-flex",
+                !isHydrated && "animate-pulse cursor-default hover:bg-white",
                 !selectedYear && "text-muted-foreground"
               )}
             >
@@ -111,7 +111,7 @@ export default function ComboboxYear({
                 {selectedYear && (
                   <>
                     <X
-                      className="text-muted-foreground hover:text-accent-foreground !pointer-events-auto mx-2 !size-4 cursor-pointer"
+                      className="text-muted-foreground hover:text-accent-foreground pointer-events-auto! mx-2 size-4! cursor-pointer"
                       onClick={handleClearSelection}
                     />
 
@@ -122,7 +122,7 @@ export default function ComboboxYear({
                   </>
                 )}
 
-                <ChevronDown className="ml-2 !size-3.5 shrink-0 opacity-80 transition-transform duration-200" />
+                <ChevronDown className="ml-2 size-3.5! shrink-0 opacity-80 transition-transform duration-200" />
               </div>
             </Button>
           </PopoverTrigger>
@@ -151,7 +151,7 @@ export default function ComboboxYear({
                       <span>{year}</span>
                       <CheckIcon
                         className={cn(
-                          "ml-auto !size-3",
+                          "ml-auto size-3!",
                           selectedYear === year ? "opacity-100" : "opacity-0"
                         )}
                       />

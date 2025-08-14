@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { ChevronDown, CheckIcon, X } from "lucide-react";
 // Utils
 import { cn } from "@/lib/utils";
+// Hooks
+import { useHydrated } from "@/hooks/useHydrated";
 // Shadcn
 import { Button } from "@/shadcn/button";
 import {
@@ -39,30 +41,30 @@ export default function Combobox({
   placeholder,
   values,
 }: Props) {
-  const [open, setOpen] = useState<boolean>(false);
-
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const [open, setOpen] = useState<boolean>(false);
   const [selectedValue, setSelectedValue] = useState<string>(
-    searchParams.get(searchParamKey) || ""
+    searchParams.get(searchParamKey) ?? ""
   );
+  const isHydrated = useHydrated();
 
   const params = new URLSearchParams(searchParams);
 
-  // const isHydrated = useHydration();
-
   useEffect(() => {
-    const paramValue = searchParams.get(searchParamKey);
-
-    setSelectedValue(paramValue ? paramValue : "");
+    const paramValue = searchParams.get(searchParamKey) ?? "";
+    setSelectedValue(paramValue);
   }, [searchParams, searchParamKey]);
 
   function handleOnSelect(currentValue: string) {
-    setSelectedValue(values.has(currentValue) ? "" : currentValue);
+    const isDeselecting = currentValue === selectedValue;
+
+    setSelectedValue(isDeselecting ? "" : currentValue);
+
     setOpen(false);
 
-    if (currentValue !== selectedValue) {
+    if (!isDeselecting) {
       params.set(searchParamKey, currentValue);
       params.set("page", "1");
     } else {
@@ -75,6 +77,9 @@ export default function Combobox({
 
   function handleClearSelection(event: React.MouseEvent) {
     event.stopPropagation();
+
+    setSelectedValue("");
+
     const params = new URLSearchParams(searchParams);
     params.delete(searchParamKey);
     params.delete("page");
@@ -84,9 +89,7 @@ export default function Combobox({
   return (
     <>
       <Popover open={open} onOpenChange={setOpen}>
-        <TooltipCustom
-          message={values.has(selectedValue) ? selectedValue : placeholder}
-        >
+        <TooltipCustom message={selectedValue ? selectedValue : placeholder}>
           <PopoverTrigger asChild>
             <Button
               data-state={open ? "open" : "closed"}
@@ -94,22 +97,21 @@ export default function Combobox({
               role="combobox"
               aria-expanded={open}
               className={cn(
-                // "hidden justify-between px-3 font-normal [&[data-state=open]_svg]:rotate-180",
-                "inline-flex justify-between px-3 font-normal [&[data-state=open]_svg]:rotate-180",
+                "inline-flex cursor-pointer justify-between px-3 font-normal [&[data-state=open]_svg]:rotate-180",
                 className,
-                // isHydrated && "inline-flex",
+                !isHydrated && "animate-pulse cursor-default hover:bg-white",
                 !selectedValue && "text-muted-foreground"
               )}
             >
               <span className="truncate font-medium">
-                {values.has(selectedValue) ? selectedValue : placeholder}
+                {selectedValue ? selectedValue : placeholder}
               </span>
 
               <div className="flex h-full items-center justify-between">
                 {selectedValue && (
                   <>
                     <X
-                      className="text-muted-foreground hover:text-accent-foreground !pointer-events-auto mx-2 size-4 cursor-pointer"
+                      className="text-muted-foreground hover:text-accent-foreground pointer-events-auto! mx-2 size-4 cursor-pointer"
                       onClick={handleClearSelection}
                     />
                     <Separator
@@ -119,7 +121,7 @@ export default function Combobox({
                   </>
                 )}
 
-                <ChevronDown className="ml-2 !size-3.5 shrink-0 opacity-80 transition-transform duration-200" />
+                <ChevronDown className="ml-2 size-3.5! shrink-0 opacity-80 transition-transform duration-200" />
               </div>
             </Button>
           </PopoverTrigger>
