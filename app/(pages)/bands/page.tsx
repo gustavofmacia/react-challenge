@@ -1,11 +1,21 @@
-// Server actions
-import { fetchBands } from "@/server-actions/bands-server-actions";
 // Next
 import { Metadata } from "next";
+// React
+import { Suspense } from "react";
 // Components
-import { PaginationList } from "@/components/ui/pages/pagination-list";
 import BandsTable from "@/ui/pages/bands/bands-table";
 import BandsFilterMenu from "@/components/ui/pages/bands/bands-filter-menu";
+// Shadcn
+import { Skeleton } from "@/shadcn/skeleton";
+import SortTableHead from "@/components/ui/table/sort-table-head";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHead,
+  TableRow,
+} from "@/shadcn/table";
 
 export const metadata: Metadata = {
   title: "Bands",
@@ -17,33 +27,73 @@ type Props = {
 
 export default async function BandsPage(props: Props) {
   const searchParams = (await props.searchParams) || {};
-
-  const { country, genre, limit, order, page, query, sort, year } =
-    searchParams;
-
-  const response: { data: Band[]; pagination: Pagination } | null =
-    await fetchBands(country, genre, limit, order, page, query, sort, year);
+  const SuspenseKey = JSON.stringify(searchParams);
 
   return (
     <>
       <BandsFilterMenu />
 
-      {response?.data.length ? (
-        <>
-          <div className="rounded-md border">
-            <BandsTable bands={response.data} />
-          </div>
-
-          {response?.pagination && (
-            <PaginationList
-              pagination={response.pagination}
-              searchParams={searchParams}
-            />
-          )}
-        </>
-      ) : (
-        <div className="mt-10 text-lg">No bands found.</div>
-      )}
+      <Suspense key={SuspenseKey} fallback={<BandsTableSkeleton />}>
+        <BandsTable searchParams={searchParams} />
+      </Suspense>
     </>
+  );
+}
+
+function BandsTableSkeleton({ limit = 5 }: { limit?: number }) {
+  return (
+    <div className="opacity-70">
+      {/* Table */}
+      <div className="rounded-md border">
+        <Table className="w-full table-fixed animate-pulse">
+          <TableHeader>
+            <TableRow className="*:pointer-events-none">
+              <SortTableHead searchParamKey="name"> Name</SortTableHead>
+              <SortTableHead searchParamKey="genreCode">Genre</SortTableHead>
+              <SortTableHead searchParamKey="country">Country</SortTableHead>
+              <SortTableHead searchParamKey="year">Year</SortTableHead>
+              <TableHead className="w-12 sm:w-20"></TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="*:pointer-events-none">
+            {[...Array(limit)].map((_, i) => (
+              <TableRow key={i} className="*:py-3">
+                <TableCell>
+                  <Skeleton className="h-5 w-24 rounded" />
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-5 w-16 rounded" />
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-5 w-16 rounded" />
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-5 w-12 rounded" />
+                </TableCell>
+                <TableCell className="w-12 sm:w-20">
+                  <Skeleton className="mx-2 size-4 rounded-full" />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Pagination */}
+      <div className="mt-8 flex flex-col items-end justify-end gap-4 sm:flex-row-reverse sm:justify-start sm:gap-7">
+        <div className="flex items-center gap-2">
+          <Skeleton className="flex h-8 w-[100px] items-center justify-center rounded text-sm font-medium" />
+          <div className="flex items-center space-x-2">
+            {[...Array(4)].map((_, i) => (
+              <Skeleton key={i} className="flex size-8 rounded-md p-0" />
+            ))}
+          </div>
+        </div>
+        <div className="flex items-center justify-end space-x-3">
+          <Skeleton className="h-8 w-24 rounded text-sm font-medium" />
+          <Skeleton className="h-8 w-[58px] rounded" />
+        </div>
+      </div>
+    </div>
   );
 }
