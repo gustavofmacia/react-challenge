@@ -8,8 +8,8 @@ import { SiNeteasecloudmusic } from "react-icons/si";
 export default function Header() {
   return (
     <header className="container-main bg-primary py-10">
-      <div className="flex select-none items-center justify-between">
-        <Link href="/" prefetch={false}>
+      <div className="flex items-center justify-between select-none">
+        <Link href="/">
           <SiNeteasecloudmusic className="size-11 text-white" />
         </Link>
 

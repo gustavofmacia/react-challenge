@@ -81,7 +81,7 @@ function NoBandsFound() {
           className="flex h-auto p-0 text-lg sm:text-xl"
           asChild
         >
-          <Link href="/bands" prefetch={false}>
+          <Link href="/bands">
             <MdRestartAlt className="size-6!" />
             Reset filters
           </Link>

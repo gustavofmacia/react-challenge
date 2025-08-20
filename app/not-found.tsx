@@ -18,7 +18,7 @@ export default function NotFound() {
         className="flex h-auto p-0 text-lg sm:text-xl"
         asChild
       >
-        <Link href="/" prefetch={false}>
+        <Link href="/">
           <MdHome className="size-5! sm:size-6!" />
           Go to home page
         </Link>
